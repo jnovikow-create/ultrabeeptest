@@ -1,17 +1,13 @@
 #!/usr/bin/env bash
-# Push this folder to GitHub Pages: https://github.com/USER/ultrbeeptest
+# Push this folder to GitHub Pages: https://github.com/USER/ultrabeeptest
 set -euo pipefail
 cd "$(dirname "$0")"
 
-USER_NAME="${1:-}"
-if [[ -z "$USER_NAME" ]]; then
-  echo "Usage: ./publish.sh YOUR_GITHUB_USERNAME"
-  echo "Example: ./publish.sh jnovikow"
-  exit 1
-fi
+USER_NAME="${1:-jnovikow-create}"
+REPO_NAME="${2:-ultrabeeptest}"
 
-REPO="https://github.com/${USER_NAME}/ultrbeeptest.git"
-PAGES="https://${USER_NAME}.github.io/ultrbeeptest/"
+REPO="https://github.com/${USER_NAME}/${REPO_NAME}.git"
+PAGES="https://${USER_NAME}.github.io/${REPO_NAME}/"
 
 if [[ ! -d .git ]]; then
   git init
@@ -43,12 +39,12 @@ fi
 echo ""
 echo "Pushing to $REPO ..."
 echo "If the repo does not exist yet, create it at: https://github.com/new"
-echo "  Name: ultrbeeptest  · Public  · no README needed"
+echo "  Name: ultrabeeptest  · Public  · no README needed"
 echo ""
 git push -u origin main
 
 echo ""
-echo "Next: GitHub → ultrbeeptest → Settings → Pages"
+echo "Next: GitHub → ultrabeeptest → Settings → Pages"
 echo "  Source: Deploy from branch  ·  Branch: main  ·  Folder: / (root)"
 echo ""
 echo "App Store Connect URLs:"
